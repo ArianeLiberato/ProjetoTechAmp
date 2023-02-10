@@ -1,0 +1,32 @@
+.titulo{
+    display: flex;
+    justify-content: center;
+    padding-top: 3px;
+}
+h1{
+    font-size: 20px;
+    color: darkorange;
+}
+.tab1{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 65%;
+}
+.tab2{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#button{
+    color: darkorange;
+}
+
+.dsp-block{
+    margin-left: 35%;
+    width: 70px;
+}
+ion-title{
+    color: darkorange;
+}

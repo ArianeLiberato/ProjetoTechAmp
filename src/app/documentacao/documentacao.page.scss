@@ -1,0 +1,34 @@
+.titulo{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+h1{
+    font-size: 20px;
+    color: #ff8c00;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+    padding-bottom: 15%;
+    padding: 40px;
+}
+
+#button{
+    background-color: darkorange;
+    color: white;
+}
+.botão{
+    color: darkorange;
+}
+.dsp-block{
+    margin-left: 34%;
+    width: 70px;
+}
+.form-control{
+    padding: 12px 16px;
+}
+ion-title{
+    color: darkorange;
+}
