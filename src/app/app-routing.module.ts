@@ -12,7 +12,6 @@ const routes: Routes = [
     path: 'folder/:id',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
   },
-  
   {
     path: 'inicio/:id',
     loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
@@ -29,14 +28,15 @@ const routes: Routes = [
     path: 'configuracao/:id',
     loadChildren: () => import('./configuracao/configuracao.module').then( m => m.ConfiguracaoPageModule)
   },
-  {
-    path: 'documentacao/:id',
-    loadChildren: () => import('./documentacao/documentacao.module').then( m => m.DocumentacaoPageModule)
-  },
  {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'admin/:id',
+    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   }
+
 
 ];
 

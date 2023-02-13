@@ -12,7 +12,8 @@ import { ReparoPage } from './reparo.page';
     FormsModule,
     IonicModule,
     ReparoPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   declarations: [ReparoPage]
 })

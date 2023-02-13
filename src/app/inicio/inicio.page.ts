@@ -12,6 +12,7 @@ import { FirebaseService } from '../servico/firebasec.service';
 export class InicioPage implements OnInit {
 
   public inicio!: string;
+  userId = localStorage.getItem('userId');
   
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -19,7 +20,7 @@ export class InicioPage implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.inicio = this.activatedRoute.snapshot.paramMap.get('id') as string;
+    //this.inicio = this.activatedRoute.snapshot.paramMap.get('id') as string;
   }
 
 }

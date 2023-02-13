@@ -13,38 +13,34 @@
 
   <div class="container">
 
-    <form [formGroup]="form" >
+    <form #form="ngForm">
       <div class="form-floating">
-        <input type="text" class="form-control" formControlName="nome">
+        <input type="text" class="form-control" name="nome" [ngModel]="user.nome" disabled>
         <label for="floatingInput">Nome:</label>
       </div>
       <br>
       <div class="form-floating">
-        <input type="text" class="form-control"  formControlName="cpf" >
+        <input type="text" class="form-control" name="cpf" [ngModel]="user.cpf" disabled>
         <label for="floatingInput">CPF:</label>
       </div>
       <br>
       <div class="form-floating">
-        <input type="text" class="form-control" formControlName="celular">
+        <input type="text" class="form-control" name="celular" [ngModel]="user.celular" disabled>
         <label for="floatingInput">Celular:</label>
       </div>
       <br>
       <div class="form-floating">
-        <input type="text" class="form-control" formControlName="unidade" >
+        <input type="text" class="form-control" name="unidade_curso" [ngModel]="user.unidade_curso" disabled>
         <label for="floatingInput">Unidade:</label>
       </div>
       <br>
       <div class="form-floating">
-        <input type="text" class="form-control"  formControlName="cursos" >
+        <input type="text" class="form-control"  name="curso_curso" [ngModel]="user.curso_curso" disabled>
         <label for="floatingInput">Curso(s):</label>
       </div>
       <br>
-      <div class="form-floating">
-        <input type="text" class="form-control" formControlName="turma" >
-        <label for="floatingInput">Turma(s):</label>
-      </div>
-
-      <ion-button expand="block" target="" id="button" color="warning">Atualizar</ion-button>
+  
+      <!-- <ion-button expand="block" target="" id="button" color="warning">Atualizar</ion-button> -->
 
     </form>
 

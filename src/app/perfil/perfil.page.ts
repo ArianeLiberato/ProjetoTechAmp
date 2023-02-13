@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { ActivatedRoute } from '@angular/router';
+import { FirebaserService } from '../servico/firebaser.service';
 
 @Component({
   selector: 'app-perfil',
@@ -11,19 +12,22 @@ import { ActivatedRoute } from '@angular/router';
 export class PerfilPage implements OnInit {
  
   form: FormGroup;  
-
+  user: any = {};
   public perfil!: string;
   constructor(    
     private activatedRoute: ActivatedRoute,
-    private formBuilder: FormBuilder    
+    private formBuilder: FormBuilder,
+    private firebase: FirebaserService
     ) {}
 
   ngOnInit() {
    this.perfil = this.activatedRoute.snapshot.paramMap.get('id') as string;   
-    this.validForm();
+    /* this.validForm(); */
+    this.firebase.consultaOne().subscribe(results => this.user = results );
+    console.log('fora',this.user.valueChanges);
   }
 
-  validForm(){
+ /*  validForm(){
     this.form = this.formBuilder.group({
       nome: [{value: '', disabled: true}],
       cpf: [{value: '', disabled: true}],
@@ -33,6 +37,15 @@ export class PerfilPage implements OnInit {
       turma: [{value: '', disabled: true}]
 
     })
-  }
+  } */
   
+}
+
+export class Reparo{
+  nome: string;
+  cpf: string;
+  celular: string;
+  unidade_curso: string;
+  curso_curso: string;
+  turma: string;
 }

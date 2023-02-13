@@ -22,4 +22,7 @@ export class AuthenticationService {
     return this.angularAuth;
   }
 
+ /*  loginAdmin(admin) {
+    return this.angularAuth.signInWithEmailAndPassword(admin.)
+  } */
 }

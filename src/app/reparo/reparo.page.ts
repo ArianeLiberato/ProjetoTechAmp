@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, NavController } from '@ionic/angular';
-import { FirebaseService } from '../servico/firebasec.service';
+
+import { AlertController } from '@ionic/angular';
+
 import { FirebaserService } from '../servico/firebaser.service';
-import { InicioPage } from '../inicio/inicio.page';
+
+
 
 @Component({
   selector: 'app-reparo',
@@ -13,27 +14,31 @@ import { InicioPage } from '../inicio/inicio.page';
 })
 export class ReparoPage implements OnInit {
 
-  form!: FormGroup;
-
+  
+  user: any = {};
   constructor(
     private firebase: FirebaserService,
-
-    private formBuilder: FormBuilder,
     private alertCtrl: AlertController,
     private router: Router
 
   ) { }
 
   ngOnInit() {
-    this.validaForm();
+    //console.log(this.userId)
+    this.firebase.consultaOne().subscribe(results => this.user = results );
+    console.log('fora',this.user.valueChanges);
+    //this.validaForm();
+   
+   
+    //console.log(this.user);
   }
 
 
   /* this.firebase.cadastro(item); */
 
-  validaForm(){
+  /* validaForm(){
     this.form = this.formBuilder.group({
-      nome: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
+      nome: ['Maria', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
       cpf: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(14)]],
       estado: ['', [Validators.required]],
       regiao: ['', [Validators.required]],
@@ -43,13 +48,13 @@ export class ReparoPage implements OnInit {
       problema: ['', [Validators.required]],
       descricao: ['', [Validators.required]]
       
-    })
-  }
+    }) */
+  
 
 
-  cadastrar():void{
-    this.firebase.cadastro(this.form.value);
-    //console.log(this.form.value);
+  cadastrar(form):void{
+    this.firebase.atualizar(form.value);
+    console.log(form.value);
   }
   async alert(){
     const alert = this.alertCtrl.create({
@@ -79,11 +84,6 @@ export class ReparoPage implements OnInit {
       rj : "rj"
     }
     ];
-    regiao:  [{
-      interior : "interior",
-      rio_granderio : "rio_granderio"
-    }
-    ];
     unidade: [{
       angradosreis : "angradosreis",
       barradopirai : "barradopirai",
@@ -96,8 +96,10 @@ export class ReparoPage implements OnInit {
     }
   ];
   sala: string;
+  
   problema : [{
     defeito : "defeito"
   }];
   descricao: string;
+
 }

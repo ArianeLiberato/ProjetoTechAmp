@@ -15,6 +15,7 @@ export class AppComponent implements OnInit{
     { title: 'Sair', url: '/folder/Sair', icon: 'exit' }
   ];
 
+  nameUser = localStorage.getItem('name');
   
   constructor() {}
 
