@@ -35,7 +35,9 @@ const routes: Routes = [
   {
     path: 'admin/:id',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
-  }
+  },
+  
+
 
 
 ];

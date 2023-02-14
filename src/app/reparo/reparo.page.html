@@ -31,42 +31,41 @@
       </select>
     <br>
       
-      <select   class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="unidade_chamado" ngModel>
+      <select   class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="unidade_curso" [ngModel]="user.unidade_curso" disabled>
         <option value="">Unidade: </option>
-        <option value="Angra dos Reis">Senac Angra dos Reis</option>
-        <option value="Barra do Pirai">Senac Barra do Piraí</option>
-        <option value="Barra Mansa">Senac Barra Mansa</option>
-        <option value="Cabo Frio">Senac Cabo Frio</option>
-        <option value="Campos">Senac Campos</option>
-        <option value="Conceicao de Macabu">Senac Conceição de Macabu</option>
-        <option value="Campos">Senac Campos</option>
-        <option value="Itaperuna">Senac Itaperuna</option>
-        <option value="Macaé">Senac Macaé</option>
-        <option value="Nova Friburgo">Senac Nova Friburgo</option>
-        <option value="Petropolis">Senac Petrópolis</option>
-        <option value="Resende">Senac Resende</option>
-        <option value="Rio das Ostras">Senac Rio das Ostras</option>
-        <option value="Santo Antonio">Senac Santo Antônio de Pádua</option>
-        <option value="Teresopolis">Senac Teresópolis</option>
-        <option value="Tres Rios">Senac Três Rios</option>
-        <option value="Volta Redonda">Senac Volta Redonda</option>
-        <option value="Politecnico">Centro Politécnico Riachuelo</option>
-        <option value="Santa Luzia">Faculdade Senac RJ Santa Luzia</option>
-        <option value="Barra da Tijuca">Senac Barra da Tijuca</option>
-        <option value="Bonsucesso">Senac Bonsucesso</option>
-        <option value="Botafogo">Senac Botafogo</option>
-        <option value="Campo Grande">Senac Campo Grande</option>
-        <option value="Copacabana">Senac Copacabana</option>
-        <option value="Duque de Caxias">Senac Duque de Caxias</option>
-        <option value="Iraja">Senac Irajá</option>
-        <option value="Madureira">Senac Madureira</option>
-        <option value="Marechal Floriano">Senac Marechal Floriano</option>
-        <option value="Niteroi">Senac Niterói</option>
-        <option value="Nova Iguacu">Senac Nova Iguaçu</option>
-        <option value="Sao Joao de Meriti">Senac São João de Meriti</option>
+        <option value="Senac Angra dos Reis">Senac Angra dos Reis</option>
+        <option value="Senac Barra do Piraí">Senac Barra do Piraí</option>
+        <option value="Senac Barra Mansa">Senac Barra Mansa</option>
+        <option value="Senac Cabo Frio">Senac Cabo Frio</option>
+        <option value="Senac Campos">Senac Campos</option>
+        <option value="Senac Conceição de Macabu">Senac Conceição de Macabu</option>
+        <option value="Senac Itaperuna">Senac Itaperuna</option>
+        <option value="Senac Macaé">Senac Macaé</option>
+        <option value="Senac Nova Friburgo">Senac Nova Friburgo</option>
+        <option value="Senac Petrópolis">Senac Petrópolis</option>
+        <option value="Senac Resende">Senac Resende</option>
+        <option value="Senac Rio das Ostras">Senac Rio das Ostras</option>
+        <option value="Senac Santo Antônio de Pádua">Senac Santo Antônio de Pádua</option>
+        <option value="Senac Teresópolis">Senac Teresópolis</option>
+        <option value="Senac Três Rios">Senac Três Rios</option>
+        <option value="Senac Volta Redonda">Senac Volta Redonda</option>
+        <option value="Centro Politécnico Riachuelo">Centro Politécnico Riachuelo</option>
+        <option value="Faculdade Senac RJ Santa Luzia">Faculdade Senac RJ Santa Luzia</option>
+        <option value="Senac Barra da Tijuca">Senac Barra da Tijuca</option>
+        <option value="Senac Bonsucesso">Senac Bonsucesso</option>
+        <option value="Senac Botafogo">Senac Botafogo</option>
+        <option value="Senac Campo Grande">Senac Campo Grande</option>
+        <option value="Senac Copacabana">Senac Copacabana</option>
+        <option value="Senac Duque de Caxias">Senac Duque de Caxias</option>
+        <option value="Senac Irajá">Senac Irajá</option>
+        <option value="Senac Madureira">Senac Madureira</option>
+        <option value="Senac Marechal Floriano">Senac Marechal Floriano</option>
+        <option value="Senac Niterói">Senac Niterói</option>
+        <option value="Senac Nova Iguaçu">Senac Nova Iguaçu</option>
+        <option value="Senac São João de Meriti">Senac São João de Meriti</option>
       </select>
       <br>
-      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="curso_chamado" ngModel>
+      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="curso_curso" [ngModel]="user.curso_curso" disabled>
         <option value="">Curso: </option>
         <option value="Administracao">Administração e Gestão</option>
         <option value="Audiovisual">Audiovisual</option>
@@ -76,6 +75,7 @@
         <option value="Gastronomia">Gastronomia</option>
         <option value="Ingles">Inglês</option>
         <option value="Libras">Libras</option>
+        <option value="Técnico em Informática">Técnico em Informática</option>
       </select>
 <br>
       <div class="form-floating">

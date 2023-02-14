@@ -12,9 +12,9 @@
   
   
   <ion-content>
-      
+    
     <div class="container">
-  
+    
       <form [formGroup]="form" (submit)="logar()">
         <ion-text color="dark" class="ion-text-center"><h3>Login do {{tipoPerfil}}</h3></ion-text><br>
   
@@ -22,18 +22,14 @@
           <input type="text" class="form-control" formControlName="email">
           <label for="email">E-mail:</label>
         </div>
-        <br>
-  
+<br>
         <div class="form-floating">
           <input type="password" class="form-control" formControlName="password">
           <label for="senha">Senha: </label>
         </div>
-        <br>
+<br>
         <ion-button type="submit" expand="block" color="warning" target="" id="button">{{nameButton}}</ion-button>    
         </form>
-        <!-- <ion-button *ngIf="tipoPerfil=='Usuário'" expand="block" (click)="mudarPerfil()">Entrar como Admin</ion-button>
-        <ion-button *ngIf="tipoPerfil=='Admin'" expand="block" (click)="mudarPerfil2()">Entrar como Usuário</ion-button>
-   -->
     </div> 
   
   </ion-content>
