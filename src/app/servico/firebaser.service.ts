@@ -14,12 +14,11 @@ export class FirebaserService {
   reparoCollection: AngularFirestoreCollection;
 
   constructor(private af: AngularFirestore) { 
-    this.reparoCollection = af.collection('techamp');    
+    this.reparoCollection = af.collection('techamp' + this.userId);
   }
 
-  consultaOne(){
-    //console.log(id);
-    return this.reparoCollection.doc(this.userId).valueChanges();
+  consultaOne(id: string){
+    return this.reparoCollection.doc(id).valueChanges();
   }
   consulta(){
     return this.reparoCollection.snapshotChanges().pipe(

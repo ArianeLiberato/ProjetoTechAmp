@@ -20,86 +20,53 @@ export class LoginPage implements OnInit {
   tipoPerfil = "Usuário";
   nameButton = "Logar";
   form: FormGroup
-  users: any[] = []; 
+  users: [] = []; 
   admin: any[]  = [];
   reparoCollection: AngularFirestoreCollection;
+
   constructor(
-    //private authentication: AuthenticationService,
+    private authentication: AuthenticationService,
     private formBuilder: FormBuilder,
     private router: Router,
     private userauth: UserauthService,
-    private af: AngularFirestore
-    ) { this.reparoCollection = af.collection('usuario');   }
+    private af: AngularFirestore,
+    private firebase: FirebaserService
+    ) {    }
 
   ngOnInit() {
-    this.userauth.consulta().subscribe(results => {
-      this.users = results
-      //console.log(this.users);
-    
-    });
-
-    this.userauth.consultaAdmin().subscribe(results => {
-      this.admin = results
-      //console.log(this.users);
-    
-    });
- 
     this.validaForm();
+    this.authentication.getAuth().user.subscribe(results => {
+      localStorage.setItem('userId', results.uid );
+    }); 
+    
+
+  }
+
+  logar(){
+
+    this.authentication.loginUser(this.form.value);
+    
+    this.firebase.consultaOne(localStorage.getItem('userId')).subscribe();
+   
+
+    this.router.navigate(['inicio/:id']);
+    console.log(this.userId);
+
+    /* localStorage.getItem('userId');
+    this.router.navigate(['inicio/']);
+    
+    this.authentication.loginUser(this.form.value);
+    console.log(localStorage.getItem('userId'));
+
+    this.firebase.consultaOne(localStorage.getItem('userId')).subscribe(results => console.log(results)); */
+    
+    
   }
 
   validaForm(){
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]]
+      password: ['', [Validators.required, Validators.minLength(3)]]
     })
   }
-
-  mudarPerfil() {
-    this.tipoPerfil = "Admin";
-  }
-  mudarPerfil2() {
-    this.tipoPerfil = "Usuário"; 
-  }
-
-  login() {
-
-    if(this.tipoPerfil == "Usuário"){
-
-
-      for(let i = 0; i < this.users.length; i++){
-        if (this.form.value.email == this.users[i].email && this.form.value.password == this.users[i].password) {
-          this.router.navigate(['inicio/', this.users[i].id], {replaceUrl: true});
-        }else{
-          console.log('Usuário não encontrado!')
-        }
-      }
-
-    }else if(this.tipoPerfil == "Admin"){
-
-      for(let i = 0; i < this.admin.length; i++){
-        if (this.form.value.email == this.admin[i].email && this.form.value.password == this.admin[i].password) {
-          this.router.navigate(['admin/', this.admin[i].id], {replaceUrl: true});
-        }else{
-          console.log('Usuário não encontrado!')
-        }
-      }
-    }else {
-      console.log('não funcionou');
-    }
-
-  }
 }
-
-
-   /*  for(let i = 0; i < this.users.length; i++){
-      if (this.tipoPerfil == 'Usuário' && this.form.value.email == this.users[i].email && this.form.value.password == this.users[i].password) {
-        this.router.navigate(['inicio/', this.users[i].id], {replaceUrl: true});
-      }else
-       if (this.tipoPerfil == 'Admin' && this.form.value.email == this.users[i].email && this.form.value.password == this.users[i].password) { 
-        this.router.navigate(['admin/', this.users[i].id], {replaceUrl: true});
-      } else { 
-        console.log('Usuario não encontrado!');
-      }
-    } */
-  
-

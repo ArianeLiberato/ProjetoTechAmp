@@ -14,13 +14,13 @@
   <div class="container">
     <form #form="ngForm" (ngSubmit)="cadastrar(form)">
       <div class="form-floating">
-        <input type="text" class="form-control" name="nome" [ngModel]="user.nome" disabled required>
+        <input type="text" class="form-control" name="nome" >
         <label for="nome">Nome:</label>
   </div>  
 
     <br>
       <div class="form-floating">
-        <input type="text" class="form-control" name="cpf" [ngModel]="user.cpf" disabled required>
+        <input type="text" class="form-control" name="cpf"   >
         <label for="cpf">CPF:</label>
       </div>
     <br>
@@ -79,7 +79,7 @@
       </select>
 <br>
       <div class="form-floating">
-        <input type="text" class="form-control" name="sala" [ngModel]="user.sala" disabled required>
+        <input type="text" class="form-control" name="sala"  >
         <label for="sala">Sala:</label>
       </div>
 <br>
@@ -88,7 +88,7 @@
         <label for="patrimonio">Patrimonio:</label>
       </div>
 <br> -->
-      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="problema" ngModel>
+      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="problema" >
         <option value="">Selecione seu problema:</option>
         <option value="Defeito">Defeito</option>
         <option value="Mau contato">Mau contato</option>

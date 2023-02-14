@@ -16,7 +16,7 @@ export class UserauthService {
   constructor(private af: AngularFirestore) { 
     this.userCollection = this.af.collection('usuario');
     this.adminCollection = this.af.collection('admin');
-    this.reparoCollection = af.collection('techamp');   
+    this.reparoCollection = af.collection('techamp' + this.userId);   
 
   }
 
@@ -33,8 +33,8 @@ export class UserauthService {
     )
   }
 
-  consulta(){
-    return this.userCollection.snapshotChanges().pipe(
+  /* consulta(){
+    return this.reparoCollection.snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data();
@@ -44,11 +44,11 @@ export class UserauthService {
 
       })
     )
-  }
+  } */
 
 
   consultaOne(id: string){
-    return this.userCollection.doc(id).valueChanges();
+    return this.reparoCollection.doc(this.userId).valueChanges();
   }
 
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
+import { FirebaserService } from '../servico/firebaser.service';
 
-import { FirebaseService } from '../servico/firebasec.service';
 
 @Component({
   selector: 'app-configuracao',
@@ -14,7 +14,7 @@ export class ConfiguracaoPage implements OnInit {
   form!: FormGroup;
 
   constructor(
-    private firebase: FirebaseService,
+    private firebase: FirebaserService,
 
     private formBuilder: FormBuilder,
     private alertCtrl: AlertController

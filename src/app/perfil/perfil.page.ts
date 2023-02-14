@@ -23,7 +23,7 @@ export class PerfilPage implements OnInit {
   ngOnInit() {
    this.perfil = this.activatedRoute.snapshot.paramMap.get('id') as string;   
     /* this.validForm(); */
-    this.firebase.consultaOne().subscribe(results => this.user = results );
+    /* this.firebase.consultaOne().subscribe(results => this.user = results ); */
     console.log('fora',this.user.valueChanges);
   }
 

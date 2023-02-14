@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { AlertController } from '@ionic/angular';
+import { AuthenticationService } from '../servico/authentication.service';
 
 import { FirebaserService } from '../servico/firebaser.service';
 
@@ -14,23 +16,32 @@ import { FirebaserService } from '../servico/firebaser.service';
 })
 export class ReparoPage implements OnInit {
 
+  userId = localStorage.getItem('userId');
+  reparoCollection: AngularFirestoreCollection
+  public reparo!: string;
   
-  user: any = {};
   constructor(
     private firebase: FirebaserService,
     private alertCtrl: AlertController,
-    private router: Router
-
-  ) { }
+    private router: Router, 
+    private activatedRoute: ActivatedRoute,
+    private af: AngularFirestore,
+  private authentication : AuthenticationService
+  ) { this.reparoCollection = af.collection('techamp' + this.userId) ; }
 
   ngOnInit() {
+    /* this.reparo = this.activatedRoute.snapshot.paramMap.get('id') as string; */
     //console.log(this.userId)
-    this.firebase.consultaOne().subscribe(results => this.user = results );
-    console.log('fora',this.user.valueChanges);
+    this.firebase.consultaOne(localStorage.getItem('userId'))
+    this.firebase.consultaOne(localStorage.getItem('userId')).subscribe(results => console.log(results)); 
+    this.firebase.consultaOne('userId');  
+    /* this.authentication.getAuth().user.subscribe(results => {
+      localStorage.setItem('userId', results.uid );
+    });  */
     //this.validaForm();
    
-   
-    //console.log(this.user);
+  
+    
   }
 
 

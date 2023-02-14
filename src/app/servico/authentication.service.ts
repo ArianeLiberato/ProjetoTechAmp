@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,8 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 export class AuthenticationService {
 
   constructor(
-    private angularAuth: AngularFireAuth
+    private angularAuth: AngularFireAuth,
+    private router: Router
   ) { }
 
   loginUser(user){
