@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { DisableSideMenu } from '../custom-decorator/disable-side-menu.decorator';
 import { AuthenticationService } from '../servico/authentication.service';
+
 @DisableSideMenu()
+
 @Component({
   selector: 'app-folder',
   templateUrl: './folder.page.html',
   styleUrls: ['./folder.page.scss'],
 })
+
 export class FolderPage implements OnInit {
   public folder!: string;
   public inicio!: string;

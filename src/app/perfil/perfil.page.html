@@ -10,39 +10,34 @@
 </ion-header>
 
 <ion-content>
-
   <div class="container">
-
     <form #form="ngForm">
+      
       <div class="form-floating">
         <input type="text" class="form-control" name="nome" [ngModel]="user.nome" disabled>
         <label for="floatingInput">Nome:</label>
       </div>
-      <br>
+<br>
       <div class="form-floating">
         <input type="text" class="form-control" name="cpf" [ngModel]="user.cpf" disabled>
         <label for="floatingInput">CPF:</label>
       </div>
-      <br>
+<br>
       <div class="form-floating">
         <input type="text" class="form-control" name="celular" [ngModel]="user.celular" disabled>
         <label for="floatingInput">Celular:</label>
       </div>
-      <br>
+<br>
       <div class="form-floating">
         <input type="text" class="form-control" name="unidade_curso" [ngModel]="user.unidade_curso" disabled>
         <label for="floatingInput">Unidade:</label>
       </div>
-      <br>
+<br>
       <div class="form-floating">
         <input type="text" class="form-control"  name="curso_curso" [ngModel]="user.curso_curso" disabled>
         <label for="floatingInput">Curso(s):</label>
       </div>
-      <br>
-  
-      <!-- <ion-button expand="block" target="" id="button" color="warning">Atualizar</ion-button> -->
-
+<br>
     </form>
-
   </div>
 </ion-content>

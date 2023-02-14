@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { AlertController } from '@ionic/angular';
 import { FirebaserService } from '../servico/firebaser.service';
-
 
 @Component({
   selector: 'app-configuracao',
@@ -68,8 +68,6 @@ export class ConfiguracaoPage implements OnInit {
     });
 
     (await alert).present();
-
-
 
 }
 }

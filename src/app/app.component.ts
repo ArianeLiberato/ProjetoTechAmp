@@ -1,7 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-
-
 
 @Component({
   selector: 'app-root',
@@ -15,7 +12,7 @@ export class AppComponent implements OnInit{
     { title: 'Sair', url: '/folder/Sair', icon: 'exit' }
   ];
 
-  nameUser = localStorage.getItem('name');
+  nameUser = localStorage.getItem('nome');
   
   constructor() {}
 

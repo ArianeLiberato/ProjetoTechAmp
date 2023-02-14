@@ -11,27 +11,26 @@
 </ion-header>
 
 <ion-content>
+
   <div class="container">
     <form #form="ngForm" (ngSubmit)="cadastrar(form)">
+
       <div class="form-floating">
         <input type="text" class="form-control" name="nome" [ngModel]="user.nome" disabled>
         <label for="nome">Nome:</label>
-  </div>  
-
-    <br>
+     </div>  
+<br>
       <div class="form-floating">
         <input type="text" class="form-control" name="cpf"  [ngModel]="user.cpf" disabled>
         <label for="cpf">CPF:</label>
       </div>
-    <br>
-
+<br>
       <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="estado" [ngModel]="user.estado" disabled>
         <option value="">Estado: </option>
         <option value="Rio de Janeiro">Rio de Janeiro</option>
       </select>
-    <br>
-      
-      <select   class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="unidade_curso" [ngModel]="user.unidade_curso" disabled>
+<br>
+      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="unidade_curso" [ngModel]="user.unidade_curso" disabled>
         <option value="">Unidade: </option>
         <option value="Senac Angra dos Reis">Senac Angra dos Reis</option>
         <option value="Senac Barra do Piraí">Senac Barra do Piraí</option>
@@ -64,7 +63,7 @@
         <option value="Senac Nova Iguaçu">Senac Nova Iguaçu</option>
         <option value="Senac São João de Meriti">Senac São João de Meriti</option>
       </select>
-      <br>
+<br>
       <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="curso_curso" [ngModel]="user.curso_curso" disabled>
         <option value="">Curso: </option>
         <option value="Administracao">Administração e Gestão</option>
@@ -94,16 +93,14 @@
         <option value="Mau contato">Mau contato</option>
         <option value="Troca de componente/dispositivo">Troca de componente/dispositivo</option>
       </select>
-      <br>
+<br>
       <div class="form-group">
         <label for="descricao">Descrição:</label>
         <textarea class="form-control" rows="5" name="descricao" ngModel></textarea>
       </div>
-      <br>
-
+<br>
       <ion-button expand="block" color="warning" type="submit" id="button" target=""  (click)="alert()">Enviar</ion-button>
 
-     
     </form>
   </div>
 </ion-content>

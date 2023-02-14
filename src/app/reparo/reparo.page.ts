@@ -4,10 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { AlertController } from '@ionic/angular';
 import { AuthenticationService } from '../servico/authentication.service';
-
 import { FirebaserService } from '../servico/firebaser.service';
-
-
 
 @Component({
   selector: 'app-reparo',
@@ -20,6 +17,7 @@ export class ReparoPage implements OnInit {
   reparoCollection: AngularFirestoreCollection
   public reparo!: string;
   user: any = {};
+
   constructor(
     private firebase: FirebaserService,
     private alertCtrl: AlertController,
@@ -30,6 +28,9 @@ export class ReparoPage implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    this.firebase.consultaOne().subscribe(results => this.user = results );
+
     /* this.reparo = this.activatedRoute.snapshot.paramMap.get('id') as string; */
     //console.log(this.userId)
   /*   this.firebase.consultaOne(localStorage.getItem('userId'))
@@ -39,12 +40,9 @@ export class ReparoPage implements OnInit {
       localStorage.setItem('userId', results.uid );
     });   */
     //this.validaForm();
-   this.firebase.consultaOne().subscribe(results => this.user = results );
-    
     /* console.log(this.user.valueChanges); */
     
   }
-
 
   /* this.firebase.cadastro(item); */
 
@@ -62,8 +60,6 @@ export class ReparoPage implements OnInit {
       
     }) */
   
-
-
   cadastrar(form):any{
     this.firebase.atualizar(form.value);
     console.log(form.value);
@@ -85,9 +81,8 @@ export class ReparoPage implements OnInit {
 
     (await alert).present();
 
-
-
 }
+
 }
   export class Reparo{
     nome: string;

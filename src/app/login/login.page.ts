@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { DisableSideMenu } from '../custom-decorator/disable-side-menu.decorator';
 import { AuthenticationService } from 'src/app/servico/authentication.service'
 import { UserauthService } from '../servico/userauth.service';
+
 import { FirebaserService } from '../servico/firebaser.service';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 
@@ -21,8 +22,6 @@ export class LoginPage implements OnInit {
   nameButton = "Logar";
   form: FormGroup
   users: [] = []; 
-  admin: any[]  = [];
-  reparoCollection: AngularFirestoreCollection;
 
   constructor(
     private authentication: AuthenticationService,
@@ -34,6 +33,7 @@ export class LoginPage implements OnInit {
     ) {  }
 
   ngOnInit() {
+
     this.validaForm(); 
     this.authentication.getAuth().user.subscribe(results => {
       localStorage.setItem('userId', results.uid );
@@ -41,17 +41,13 @@ export class LoginPage implements OnInit {
   
   }
 
-
   logar(){
 
     this.authentication.loginUser(this.form.value);
-    
     this.router.navigate(['inicio/:id']);
   
-    
   }
    
-
  /*    this.router.navigate(['inicio/:id']);
     console.log(this.userId); */
 
@@ -63,9 +59,6 @@ export class LoginPage implements OnInit {
 
     this.firebase.consultaOne(localStorage.getItem('userId')).subscribe(results => console.log(results)); */
     
-    
-  
-
   validaForm(){
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],

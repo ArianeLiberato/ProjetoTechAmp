@@ -1,6 +1,4 @@
 import { AppModule } from "../app.module";
-
-
 import { MenuController } from "@ionic/angular";
 
 export function DisableSideMenu() {
