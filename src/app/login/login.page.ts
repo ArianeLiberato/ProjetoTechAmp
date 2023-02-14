@@ -31,26 +31,29 @@ export class LoginPage implements OnInit {
     private userauth: UserauthService,
     private af: AngularFirestore,
     private firebase: FirebaserService
-    ) {    }
+    ) {  }
 
   ngOnInit() {
-    this.validaForm();
+    this.validaForm(); 
     this.authentication.getAuth().user.subscribe(results => {
       localStorage.setItem('userId', results.uid );
     }); 
-    
-
+  
   }
+
 
   logar(){
 
     this.authentication.loginUser(this.form.value);
     
-    this.firebase.consultaOne(localStorage.getItem('userId')).subscribe();
+    this.router.navigate(['inicio/:id']);
+  
+    
+  }
    
 
-    this.router.navigate(['inicio/:id']);
-    console.log(this.userId);
+ /*    this.router.navigate(['inicio/:id']);
+    console.log(this.userId); */
 
     /* localStorage.getItem('userId');
     this.router.navigate(['inicio/']);
@@ -61,7 +64,7 @@ export class LoginPage implements OnInit {
     this.firebase.consultaOne(localStorage.getItem('userId')).subscribe(results => console.log(results)); */
     
     
-  }
+  
 
   validaForm(){
     this.form = this.formBuilder.group({
@@ -70,3 +73,4 @@ export class LoginPage implements OnInit {
     })
   }
 }
+

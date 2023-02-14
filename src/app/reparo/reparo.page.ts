@@ -19,7 +19,7 @@ export class ReparoPage implements OnInit {
   userId = localStorage.getItem('userId');
   reparoCollection: AngularFirestoreCollection
   public reparo!: string;
-  
+  user: any = {};
   constructor(
     private firebase: FirebaserService,
     private alertCtrl: AlertController,
@@ -27,20 +27,21 @@ export class ReparoPage implements OnInit {
     private activatedRoute: ActivatedRoute,
     private af: AngularFirestore,
   private authentication : AuthenticationService
-  ) { this.reparoCollection = af.collection('techamp' + this.userId) ; }
+  ) { }
 
   ngOnInit() {
     /* this.reparo = this.activatedRoute.snapshot.paramMap.get('id') as string; */
     //console.log(this.userId)
-    this.firebase.consultaOne(localStorage.getItem('userId'))
+  /*   this.firebase.consultaOne(localStorage.getItem('userId'))
     this.firebase.consultaOne(localStorage.getItem('userId')).subscribe(results => console.log(results)); 
     this.firebase.consultaOne('userId');  
-    /* this.authentication.getAuth().user.subscribe(results => {
+    this.authentication.getAuth().user.subscribe(results => {
       localStorage.setItem('userId', results.uid );
-    });  */
+    });   */
     //this.validaForm();
-   
-  
+   this.firebase.consultaOne().subscribe(results => this.user = results );
+    
+    /* console.log(this.user.valueChanges); */
     
   }
 
@@ -63,7 +64,7 @@ export class ReparoPage implements OnInit {
   
 
 
-  cadastrar(form):void{
+  cadastrar(form):any{
     this.firebase.atualizar(form.value);
     console.log(form.value);
   }
@@ -100,14 +101,12 @@ export class ReparoPage implements OnInit {
       barradopirai : "barradopirai",
       barramansa : "barramansa",
 
-    }
-    ];
+    }];
     curso : [{
       administracao : "administracao"
-    }
-  ];
+    }];
   sala: string;
-  
+  patrimonio: string;
   problema : [{
     defeito : "defeito"
   }];

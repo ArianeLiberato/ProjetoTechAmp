@@ -13,97 +13,96 @@
   
   <div class="container">
     
-    <form [formGroup]="form" (submit)="cadastrar()">
+    <form #form="ngForm" (ngSubmit)="cadastrar(form)">
       <div class="form-floating">
-        <input type="text" class="form-control" formControlName="nome" required>
+        <input type="text" class="form-control" name="nome" [ngModel]="user.nome" disabled>
         <label for="nome">Nome:</label>
   </div>  
 
     <br>
       <div class="form-floating">
-        <input type="text" class="form-control" formControlName="cpf" required>
+        <input type="text" class="form-control" name="cpf"  [ngModel]="user.cpf" disabled>
         <label for="cpf">CPF:</label>
       </div>
     <br>
 
-      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" formControlName="estado" required>
-        <option value="">Estado:</option>
-        <option value="rj">Rio de Janeiro</option>
+      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="estado" [ngModel]="user.estado" disabled>
+        <option value="">Estado: </option>
+        <option value="Rio de Janeiro">Rio de Janeiro</option>
       </select>
     <br>
       
-      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" formControlName="regiao" required>
-        <option value="">Região:</option>
-        <option value="interior">Interior</option>
-        <option value="rio_granderio">Rio e Grande Rio</option>
-      </select>
-
-    <br>
-      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"  formControlName="unidade" required>
-        <option value="">Unidade:</option>
-        <option value="angradosreis">Senac Angra dos Reis</option>
-        <option value="barradopirai">Senac Barra do Piraí</option>
-        <option value="barramansa">Senac Barra Mansa</option>
-        <option value="cabofrio">Senac Cabo Frio</option>
-        <option value="campos">Senac Campos</option>
-        <option value="conceicaodemacabu">Senac Conceição de Macabu</option>
-        <option value="campos">Senac Campos</option>
-        <option value="itaperuna">Senac Itaperuna</option>
-        <option value="macaé">Senac Macaé</option>
-        <option value="novafriburgo">Senac Nova Friburgo</option>
-        <option value="petropolis">Senac Petrópolis</option>
-        <option value="resende">Senac Resende</option>
-        <option value="riodasostras">Senac Rio das Ostras</option>
-        <option value="santoantonio">Senac Santo Antônio de Pádua</option>
-        <option value="teresopolis">Senac Teresópolis</option>
-        <option value="tresrios">Senac Três Rios</option>
-        <option value="voltaredonda">Senac Volta Redonda</option>
-
-        <option value="politecnico">Centro Politécnico Riachuelo</option>
-        <option value="santaluzia">Faculdade Senac RJ Santa Luzia</option>
-        <option value="barradatijuca">Senac Barra da Tijuca</option>
-        <option value="bonsucesso">Senac Bonsucesso</option>
-        <option value="botafogo">Senac Botafogo</option>
-        <option value="campogrande">Senac Campo Grande</option>
-        <option value="copacabana">Senac Copacabana</option>
-        <option value="duquedecaxias">Senac Duque de Caxias</option>
-        <option value="iraja">Senac Irajá</option>
-        <option value="madureira">Senac Madureira</option>
-        <option value="marechalfloriano">Senac Marechal Floriano</option>
-        <option value="niteroi">Senac Niterói</option>
-        <option value="novaiguacu">Senac Nova Iguaçu</option>
-        <option value="saojoaodemeriti">Senac São João de Meriti</option>
+      <select   class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="unidade_chamado" ngModel>
+        <option value="">Unidade: </option>
+        <option value="Angra dos Reis">Senac Angra dos Reis</option>
+        <option value="Barra do Pirai">Senac Barra do Piraí</option>
+        <option value="Barra Mansa">Senac Barra Mansa</option>
+        <option value="Cabo Frio">Senac Cabo Frio</option>
+        <option value="Campos">Senac Campos</option>
+        <option value="Conceicao de Macabu">Senac Conceição de Macabu</option>
+        <option value="Campos">Senac Campos</option>
+        <option value="Itaperuna">Senac Itaperuna</option>
+        <option value="Macaé">Senac Macaé</option>
+        <option value="Nova Friburgo">Senac Nova Friburgo</option>
+        <option value="Petropolis">Senac Petrópolis</option>
+        <option value="Resende">Senac Resende</option>
+        <option value="Rio das Ostras">Senac Rio das Ostras</option>
+        <option value="Santo Antonio">Senac Santo Antônio de Pádua</option>
+        <option value="Teresopolis">Senac Teresópolis</option>
+        <option value="Tres Rios">Senac Três Rios</option>
+        <option value="Volta Redonda">Senac Volta Redonda</option>
+        <option value="Politecnico">Centro Politécnico Riachuelo</option>
+        <option value="Santa Luzia">Faculdade Senac RJ Santa Luzia</option>
+        <option value="Barra da Tijuca">Senac Barra da Tijuca</option>
+        <option value="Bonsucesso">Senac Bonsucesso</option>
+        <option value="Botafogo">Senac Botafogo</option>
+        <option value="Campo Grande">Senac Campo Grande</option>
+        <option value="Copacabana">Senac Copacabana</option>
+        <option value="Duque de Caxias">Senac Duque de Caxias</option>
+        <option value="Iraja">Senac Irajá</option>
+        <option value="Madureira">Senac Madureira</option>
+        <option value="Marechal Floriano">Senac Marechal Floriano</option>
+        <option value="Niteroi">Senac Niterói</option>
+        <option value="Nova Iguacu">Senac Nova Iguaçu</option>
+        <option value="Sao Joao de Meriti">Senac São João de Meriti</option>
       </select>
       <br>
-      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" formControlName="curso" required>
-        <option value="">Curso:</option>
-        <option value="administracao">Administração e Gestão</option>
-        <option value="audiovisual">Audiovisual</option>
-        <option value="educacao">Educação</option>
-        <option value="fotografia">Fotografia</option>
-        <option value="frances">Francês</option>
-        <option value="gastronomia">Gastronomia</option>
-        <option value="ingles">Inglês</option>
-        <option value="libras">Libras</option>
+      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="curso_chamado" ngModel>
+        <option value="">Curso: </option>
+        <option value="Administracao">Administração e Gestão</option>
+        <option value="Audiovisual">Audiovisual</option>
+        <option value="Educacao">Educação</option>
+        <option value="Fotografia">Fotografia</option>
+        <option value="Frances">Francês</option>
+        <option value="Gastronomia">Gastronomia</option>
+        <option value="Ingles">Inglês</option>
+        <option value="Libras">Libras</option>
       </select>
-      <br>
+<br>
       <div class="form-floating">
-        <input type="text" class="form-control" id="sala" formControlName="sala" required>
+        <input type="text" class="form-control" name="sala" ngModel>
         <label for="sala">Sala:</label>
       </div>
-      <br>
-      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" formControlName="problema" required>
+<br>
+      <div class="form-floating">
+        <input type="text" class="form-control" name="patrimonio" ngModel>
+        <label for="patrimonio">Patrimonio:</label>
+      </div>
+<br> 
+      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="problema" ngModel required>
         <option value="">Selecione o seu problema:</option>
-        <option value="windows">Configuração do Windows</option>
-        <option value="office">Configuração do Office</option>
-        <option value="rede">Configuração de Rede</option>
-        <option value="aplicativo">Configuração de Aplicativo</option>
-        <option value="configuracao/update">Configuração/Update de Componentes</option>
+        <option value="Problema aplicativo">Problema com aplicativo</option>
+        <option value="Problema login">Problema no login</option>
+        <option value="Problema de internet">Problema na conexão de internet</option>
+        <option value="Windows">Configuração do Windows</option>
+        <option value="Office">Configuração do Office</option>
+        <option value="Rede">Configuração de Rede</option>
+        <option value="Aplicativo">Configuração de Aplicativo</option>
       </select>
       <br>
       <div class="form-group">
         <label for="descricao">Descrição:</label>
-        <textarea class="form-control" id="descricao" rows="5" formControlName="descricao"></textarea>
+        <textarea class="form-control" rows="5" name="descricao" ngModel></textarea>
       </div>
       <br>
 

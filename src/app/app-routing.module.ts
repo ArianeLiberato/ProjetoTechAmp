@@ -13,15 +13,15 @@ const routes: Routes = [
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
   },
   {
-    path: 'inicio/',
+    path: 'inicio/:id',
     loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
   },
   {
-    path: 'perfil/',
+    path: 'perfil/:id',
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
   },
   {
-    path: 'reparo/',
+    path: 'reparo',
     loadChildren: () => import('./reparo/reparo.module').then( m => m.ReparoPageModule)
   },
   {

@@ -10,8 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AppComponent implements OnInit{
   public appPages = [
-    { title: 'Início', url: '/inicio/inicio', icon: 'home' },
-    { title: 'Perfil', url: '/perfil/perfil', icon: 'person' },
+    { title: 'Início', url: '/inicio/:id', icon: 'home' },
+    { title: 'Perfil', url: '/perfil/:id', icon: 'person' },
     { title: 'Sair', url: '/folder/Sair', icon: 'exit' }
   ];
 

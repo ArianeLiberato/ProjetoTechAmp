@@ -10,21 +10,22 @@ import { FirebaserService } from '../servico/firebaser.service';
   styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
- 
+  userId = localStorage.getItem('userId');
   form: FormGroup;  
   user: any = {};
   public perfil!: string;
+
   constructor(    
     private activatedRoute: ActivatedRoute,
-    private formBuilder: FormBuilder,
     private firebase: FirebaserService
     ) {}
 
   ngOnInit() {
-   this.perfil = this.activatedRoute.snapshot.paramMap.get('id') as string;   
+   /* this.perfil = this.activatedRoute.snapshot.paramMap.get('id') as string;   
     /* this.validForm(); */
-    /* this.firebase.consultaOne().subscribe(results => this.user = results ); */
-    console.log('fora',this.user.valueChanges);
+    /* this.firebase.consultaOne().subscribe(results => this.user = results );
+    console.log('fora',this.user.valueChanges); */
+    this.firebase.consultaOne().subscribe(results => this.user = results );
   }
 
  /*  validForm(){

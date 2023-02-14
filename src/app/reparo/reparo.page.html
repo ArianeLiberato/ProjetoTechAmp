@@ -14,24 +14,24 @@
   <div class="container">
     <form #form="ngForm" (ngSubmit)="cadastrar(form)">
       <div class="form-floating">
-        <input type="text" class="form-control" name="nome" >
+        <input type="text" class="form-control" name="nome" [ngModel]="user.nome" disabled>
         <label for="nome">Nome:</label>
   </div>  
 
     <br>
       <div class="form-floating">
-        <input type="text" class="form-control" name="cpf"   >
+        <input type="text" class="form-control" name="cpf"  [ngModel]="user.cpf" disabled>
         <label for="cpf">CPF:</label>
       </div>
     <br>
 
-      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="estado" >
+      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="estado" [ngModel]="user.estado" disabled>
         <option value="">Estado: </option>
         <option value="Rio de Janeiro">Rio de Janeiro</option>
       </select>
     <br>
       
-      <select   class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="unidade_chamado">
+      <select   class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="unidade_chamado" ngModel>
         <option value="">Unidade: </option>
         <option value="Angra dos Reis">Senac Angra dos Reis</option>
         <option value="Barra do Pirai">Senac Barra do Piraí</option>
@@ -66,7 +66,7 @@
         <option value="Sao Joao de Meriti">Senac São João de Meriti</option>
       </select>
       <br>
-      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="curso_chamado">
+      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="curso_chamado" ngModel>
         <option value="">Curso: </option>
         <option value="Administracao">Administração e Gestão</option>
         <option value="Audiovisual">Audiovisual</option>
@@ -79,36 +79,29 @@
       </select>
 <br>
       <div class="form-floating">
-        <input type="text" class="form-control" name="sala"  >
+        <input type="text" class="form-control" name="sala" ngModel>
         <label for="sala">Sala:</label>
       </div>
 <br>
-      <!-- <div class="form-floating">
-        <input type="text" class="form-control" name="patrimonio">
+      <div class="form-floating">
+        <input type="text" class="form-control" name="patrimonio" ngModel>
         <label for="patrimonio">Patrimonio:</label>
       </div>
-<br> -->
-      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="problema" >
+<br> 
+      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="problema" ngModel>
         <option value="">Selecione seu problema:</option>
         <option value="Defeito">Defeito</option>
         <option value="Mau contato">Mau contato</option>
-        <option value="Problema aplicativo">Problema com aplicativo</option>
-        <option value="Problema login">Problema no login</option>
-        <option value="Problema de internet">Problema na conexão de internet</option>
-        <option value="Windows">Configuração do Windows</option>
-        <option value="Office">Configuração do Office</option>
-        <option value="Rede">Configuração de Rede</option>
-        <option value="Aplicativo">Configuração de Aplicativo</option>
         <option value="Troca de componente/dispositivo">Troca de componente/dispositivo</option>
       </select>
       <br>
       <div class="form-group">
         <label for="descricao">Descrição:</label>
-        <textarea class="form-control" rows="5" name="descricao"></textarea>
+        <textarea class="form-control" rows="5" name="descricao" ngModel></textarea>
       </div>
       <br>
 
-      <ion-button expand="block" color="warning" type="submit" id="button" target="" [disabled]="!form.valid" (click)="alert()">Enviar</ion-button>
+      <ion-button expand="block" color="warning" type="submit" id="button" target=""  (click)="alert()">Enviar</ion-button>
 
      
     </form>

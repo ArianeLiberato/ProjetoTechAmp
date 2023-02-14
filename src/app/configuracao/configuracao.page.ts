@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 import { FirebaserService } from '../servico/firebaser.service';
@@ -11,8 +12,10 @@ import { FirebaserService } from '../servico/firebaser.service';
 })
 export class ConfiguracaoPage implements OnInit {
 
-  form!: FormGroup;
-
+  userId = localStorage.getItem('userId');
+  reparoCollection: AngularFirestoreCollection
+  public configuracao!: string;
+  user: any = {};
   constructor(
     private firebase: FirebaserService,
 
@@ -22,13 +25,14 @@ export class ConfiguracaoPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.validaForm();
+   /*  this.validaForm(); */
+    this.firebase.consultaOne().subscribe(results => this.user = results );
   }
 
 
   /* this.firebase.cadastro(item); */
 
-  validaForm(){
+ /*  validaForm(){
     this.form = this.formBuilder.group({
       nome: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
       cpf: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(14)]],
@@ -42,13 +46,12 @@ export class ConfiguracaoPage implements OnInit {
       
     })
   }
+ */
 
-
-  cadastrar():void{
-    this.firebase.cadastro(this.form.value);
-    //console.log(this.form.value);
+  cadastrar(form):any{
+    this.firebase.atualizar(form.value);
+    console.log(form.value);
   }
-
   async alert(){
     const alert = this.alertCtrl.create({
       mode:'ios',
@@ -66,36 +69,31 @@ export class ConfiguracaoPage implements OnInit {
 
     (await alert).present();
 
+
+
 }
 }
+  export class Configuracao{
+    nome: string;
+    cpf: string;
+    estado: [{
+      rj : "rj"
+    }
+    ];
+    unidade: [{
+      angradosreis : "angradosreis",
+      barradopirai : "barradopirai",
+      barramansa : "barramansa",
 
-export class Configuracao{
-  nome: string;
-  cpf: string;
-  estado: [{
-    rj : "rj"
-  }
-  ];
-  regiao:  [{
-    interior : "interior",
-    rio_granderio : "rio_granderio"
-  }
-  ];
-  unidade: [{
-    angradosreis : "angradosreis",
-    barradopirai : "barradopirai",
-    barramansa : "barramansa",
+    }];
+    curso : [{
+      administracao : "administracao"
+    }];
+  sala: string;
+  patrimonio: string;
+  problema : [{
+    defeito : "defeito"
+  }];
+  descricao: string;
 
-  }
-  ];
-  curso : [{
-    administracao : "administracao"
-  }
-];
-sala: string;
-problema : [{
-  windows: "windows",
-  office : "office"
-}];
-descricao: string;
 }

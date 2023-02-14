@@ -10,17 +10,20 @@ import { map } from 'rxjs/operators';
 export class FirebaserService {
 
   userId = localStorage.getItem('userId');
-
+  user: any ={
+  id: localStorage.getItem('userId')
+};
   reparoCollection: AngularFirestoreCollection;
 
   constructor(private af: AngularFirestore) { 
-    this.reparoCollection = af.collection('techamp' + this.userId);
+    this.reparoCollection = af.collection('techamp/');
   }
 
-  consultaOne(id: string){
-    return this.reparoCollection.doc(id).valueChanges();
+  consultaOne(){
+    //console.log(id);
+    return this.reparoCollection.doc(this.userId).valueChanges();
   }
-  consulta(){
+  consulta():any{
     return this.reparoCollection.snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
@@ -34,7 +37,7 @@ export class FirebaserService {
   }
   
   cadastro(item: any){
-    return this.reparoCollection.add(item)
+    return this.reparoCollection.add(item);
   }
   deletar(id: string){
     return this.reparoCollection.doc(id).delete();

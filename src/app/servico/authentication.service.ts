@@ -13,7 +13,7 @@ export class AuthenticationService {
   ) { }
 
   loginUser(user){
-   return this.angularAuth.signInWithEmailAndPassword(user.email, user.password);
+    return this.angularAuth.signInWithEmailAndPassword(user.email, user.password).catch(error => console.log(error.message));
   }
 
   logoutUser(){
